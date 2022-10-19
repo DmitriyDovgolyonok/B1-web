@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main page</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
+</head>
+<body>
+{% with errors = get_flashed_messages(category_filter=["error"]) %}
+    {% if errors %}
+        <div class="error-box">
+            <ul>
+                {%- for msg in errors %}
+                    <li>Error: {{ msg }}</li>
+                {% endfor -%}
+            </ul>
+        </div>
+    {% endif %}
+{% endwith %}
+<h1>Загрузить файл</h1>
+<form method=post enctype=multipart/form-data>
+    <input type=file name=file>
+    <input type=submit value=Upload>
+</form>
+
+<button onclick="location.href='/files'"> Просмотреть загруженные файлы</button>
+</body>
+</html>

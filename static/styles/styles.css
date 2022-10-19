@@ -1,0 +1,56 @@
+button {
+    margin: 10px 0px;
+}
+
+.error-box {
+    background-color: #FFCCCB;
+}
+
+.error-box ul {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.error-box li {
+    list-style-type: none;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+table {
+     border-collapse: collapse;
+     width: 100%;
+}
+
+.highlighted {
+    font-weight: bold;
+}
+
+td {
+    text-align: center;
+    padding: 8px;
+}
+
+.clickable-row {
+    cursor: pointer;
+}
+
+.clickable-row:hover {
+    background-color: #f2f2f2;
+}
+
+.class-spacer {
+    font-weight: bold;
+    text-align: center;
+    background-color: #f2f2f2;
+}
+
+.aggregator {
+    text-transform: uppercase;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}

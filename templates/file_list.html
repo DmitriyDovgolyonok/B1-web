@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>File list</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(document.body).on("click", "tr[data-href]", function () {
+                window.location.href = this.dataset.href;
+            });
+        });
+    </script>
+    <style>
+        th {
+            background-color: #04AA6D;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>List of downloaded files</h2>
+<p>Click on any <span class="highlighted">File Name</span> item to display its content as a table</p>
+<div class="table-wrapper">
+    <table>
+        <tr>
+            <th>File Name</th>
+            <th>Creation Date</th>
+            <th>Report Date</th>
+            <th>Bank Name</th>
+        </tr>
+        {%- for file in files %}
+                <tr class='clickable-row' data-href='/files/{{ file.id }}/'>
+                <td>{{ file.file_name }}</td>
+                <td>{{ file.date_created }}</td>
+                <td>{{ file.pub_date }}</td>
+                <td>{{ file.bank_name }}</td>
+            </tr>
+        {% endfor -%}
+    </table>
+</div>
+
+</body>
+
+</html>

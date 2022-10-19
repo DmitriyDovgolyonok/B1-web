@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>File details</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("td.highlighted").parent().css("font-weight", "bold");
+        });
+    </script>
+    <style>
+        th {
+            border: 2px solid black;
+        }
+
+        td:first-of-type:not(.class-spacer),
+        caption {
+            text-align: left;
+        }
+
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Оборотная ведомость по балансовым счетам <br> по банку "{{ file.bank_name }}" за {{ file.pub_date }}</h2>
+<button onclick="location.href='/download/{{ file.id }}/'"> Скачать данные в формате csv</button>
+
+<div class="table-wrapper">
+    <table>
+        <caption>{{ report_date }}</caption>
+        <tr>
+            <th rowspan="2">Б/сч</th>
+            <th colspan="2">Входящее сальдо</th>
+            <th colspan="2">Обороты</th>
+            <th colspan="2">Исходящее сальдо</th>
+        </tr>
+        <tr>
+            <th>Актив</th>
+            <th>Пассив</th>
+            <th>Дебет</th>
+            <th>Кредит</th>
+            <th>Актив</th>
+            <th>Пассив</th>
+        </tr>
+        {% for rows in table %}
+            <tr>
+                {% for value in rows %}
+                    {% if value in mapper.values() %}
+                        <td class="highlighted">
+                            {% else %}
+                        <td>
+                    {% endif %}
+                {{ value | table_cell }}
+                </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+</body>
+
+</html>
