@@ -11,4 +11,4 @@ a. Загрузку данных из excel-файла такого формат
 > Опционально. Реализовать сохранение данных с web-сервера в файл в удобном виде
 ### Ипользуемые технологии прописаны в файле [requirements.txt](https://github.com/DmitriyDovgolyonok/B1-web/blob/master/requirements.txt)
 ##### Скринкаст
-![sreencast](https://github.com/DmitriyDovgolyonok/B1-web/tree/master/screencast)
+![sreencast](https://github.com/DmitriyDovgolyonok/B1-web/blob/master/screencast/23-46-59.gif)
